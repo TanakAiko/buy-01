@@ -16,10 +16,6 @@ import sn.dev.product_service.services.ProductService;
 public class ProductServiceImpl implements ProductService {
     private final ProductRepo productRepo;
 
-//    public ProductServiceImpl(ProductRepo productRepo) {
-//        this.productRepo = productRepo;
-//    }
-
     @Override
     public Product create(Product product) {
         return productRepo.save(product);
