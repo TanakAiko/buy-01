@@ -25,4 +25,9 @@ public class Product {
         this.quantity = quantity;
         this.userId = userId;
     }
+
+    public Product(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

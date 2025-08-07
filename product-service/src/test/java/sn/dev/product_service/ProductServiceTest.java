@@ -1,4 +1,4 @@
-package sn.dev.product_service.services;
+package sn.dev.product_service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

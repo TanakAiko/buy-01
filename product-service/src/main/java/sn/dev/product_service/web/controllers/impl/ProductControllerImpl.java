@@ -2,6 +2,7 @@ package sn.dev.product_service.web.controllers.impl;
 
 import jakarta.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -61,10 +62,9 @@ public class ProductControllerImpl implements ProductController {
         List<ProductResponseDTO> responseList = products
             .stream()
             .map(product -> {
-                List<Media> medias = mediaServiceClient
-                    .getByProductId(product.getId())
-                    .getBody();
-
+                List<Media> medias = Optional.ofNullable(
+                    mediaServiceClient.getByProductId(product.getId()).getBody()
+                ).orElseGet(List::of);
                 return new ProductResponseDTO(product, medias);
             })
             .toList();
