@@ -146,7 +146,7 @@ public class ProductServiceTest {
 
         // Assert
         assertNotNull(products);
-        assertEquals(2, products.size());
+        assertEquals(3, products.size());
         assertEquals("Product A", products.get(0).getName());
         assertEquals("Product B", products.get(1).getName());
         assertEquals("Product C", products.get(2).getName());
