@@ -61,7 +61,7 @@ public class ProductServiceTest {
         // Verify that the repository was called
         verify(productRepo, times(1)).save(product);
 
-        System.out.println("✅ PRODUCT : testCreateProduct() passed successfully.");
+        System.out.println("✅ PRODUCT/SERVICE : testCreateProduct() passed successfully.");
     }
 
     @Test
@@ -93,7 +93,7 @@ public class ProductServiceTest {
         // Verify that the repository was called
         verify(productRepo, times(1)).findById(productId);
 
-        System.out.println("✅ PRODUCT : testGetProductById() passed successfully.");
+        System.out.println("✅ PRODUCT/SERVICE : testGetProductById() passed successfully.");
     }
 
     @Test
@@ -106,7 +106,7 @@ public class ProductServiceTest {
         assertNotNull(products);
         assertTrue(products.isEmpty());
 
-        System.out.println("✅ PRODUCT : testGetByUserId_EmptyResult() passed successfully.");
+        System.out.println("✅ PRODUCT/SERVICE : testGetByUserId_EmptyResult() passed successfully.");
     }
 
     @Test
@@ -127,7 +127,7 @@ public class ProductServiceTest {
         // Verify interaction with repository
         verify(productRepo, times(1)).findById(productId);
 
-        System.out.println("✅ PRODUCT : testGetProductById_NotFound() passed successfully.");
+        System.out.println("✅ PRODUCT/SERVICE : testGetProductById_NotFound() passed successfully.");
     }
 
     @Test
@@ -157,7 +157,7 @@ public class ProductServiceTest {
         // Verify interaction with repository
         verify(productRepo, times(1)).findAll();
 
-        System.out.println("✅ PRODUCT : testGetAllProducts() passed successfully.");
+        System.out.println("✅ PRODUCT/SERVICE : testGetAllProducts() passed successfully.");
     }
 
     @Test
@@ -183,7 +183,7 @@ public class ProductServiceTest {
         // Verify repository interaction
         verify(productRepo, times(1)).findByUserId(userId);
 
-        System.out.println("✅ PRODUCT : testGetProductsByUserId() passed successfully.");
+        System.out.println("✅ PRODUCT/SERVICE : testGetProductsByUserId() passed successfully.");
     }
 
     @Test
@@ -209,7 +209,7 @@ public class ProductServiceTest {
         // Verify that save was called
         verify(productRepo, times(1)).save(productToUpdate);
 
-        System.out.println("✅ PRODUCT : testUpdateProduct() passed successfully.");
+        System.out.println("✅ PRODUCT/SERVICE : testUpdateProduct() passed successfully.");
     }
 
     @Test
@@ -226,7 +226,7 @@ public class ProductServiceTest {
         // Then
         verify(productRepo, times(1)).delete(productToDelete);
 
-        System.out.println("✅ PRODUCT : testDeleteProduct() passed successfully.");
+        System.out.println("✅ PRODUCT/SERVICE : testDeleteProduct() passed successfully.");
     }
 
     @Test
@@ -240,7 +240,7 @@ public class ProductServiceTest {
         // Then
         verify(productRepo, times(1)).deleteByUserId(userId);
 
-        System.out.println("✅ PRODUCT : testDeleteByUserId() passed successfully.");
+        System.out.println("✅ PRODUCT/SERVICE : testDeleteByUserId() passed successfully.");
     }
 
 }
