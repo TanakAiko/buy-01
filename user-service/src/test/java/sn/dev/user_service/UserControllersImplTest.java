@@ -82,9 +82,11 @@ public class UserControllersImplTest {
     }
 
     @Test
+    @WithMockUser
     void testGetUserById_Success() throws Exception {
         User user = user("1", "John Doe", "john@example.com", "hashedPass");
-
+        user.setRole(Role.CLIENT);
+        
         when(userServices.findById("1")).thenReturn(user);
 
         mockMvc.perform(get("/api/users/{userID}/custom", "1")
@@ -99,19 +101,22 @@ public class UserControllersImplTest {
     }
 
     @Test
+    @WithMockUser
     void testGetUsers_Success() throws Exception {
         User user1 = user("1", "Alice Smith", "alice@example.com", "pass1");
+        user1.setRole(Role.CLIENT);
         User user2 = user("2", "Bob Jones", "bob@example.com", "pass2");
+        user2.setRole(Role.CLIENT);
 
         when(userServices.findAllUsers()).thenReturn(List.of(user1, user2));
 
         mockMvc.perform(get("/api/users/custom")
                 .accept(MediaTypes.HAL_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$._embedded.userResponseList[0].id").value("1"))
-                .andExpect(jsonPath("$._embedded.userResponseList[0].email").value("alice@example.com"))
-                .andExpect(jsonPath("$._embedded.userResponseList[1].id").value("2"))
-                .andExpect(jsonPath("$._embedded.userResponseList[1].email").value("bob@example.com"))
+                .andExpect(jsonPath("$._embedded.userResponses[0].id").value("1"))
+                .andExpect(jsonPath("$._embedded.userResponses[0].email").value("alice@example.com"))
+                .andExpect(jsonPath("$._embedded.userResponses[1].id").value("2"))
+                .andExpect(jsonPath("$._embedded.userResponses[1].email").value("bob@example.com"))
                 .andExpect(jsonPath("$._links.self.href").exists());
 
         System.out.println("✅ USER/CONTROLLER : testGetUsers_Success() passed successfully.");

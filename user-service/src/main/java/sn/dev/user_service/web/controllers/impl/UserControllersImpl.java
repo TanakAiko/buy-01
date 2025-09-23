@@ -64,6 +64,7 @@ public class UserControllersImpl implements UserControllers {
                 linkTo(methodOn(UserControllersImpl.class).getUsers()).withSelfRel()
         );
 
+        System.out.println("\n\ncollectionModel = " + collectionModel);
         return ResponseEntity.ok(collectionModel);
     }
 }
