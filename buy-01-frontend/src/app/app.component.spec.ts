@@ -35,10 +35,32 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('buy-01-frontend');
   });
 
-  it('should render title', () => {
+  it('should render the navbar', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, buy-01-frontend');
+    expect(compiled.querySelector('app-navbar')).not.toBeNull();
   });
+
+  it('should render the footer', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-footer')).not.toBeNull();
+  });
+
+  it('should render the toast component', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-toast')).not.toBeNull();
+  });
+
+  it('should have a router-outlet', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('router-outlet')).not.toBeNull();
+  });
+
 });

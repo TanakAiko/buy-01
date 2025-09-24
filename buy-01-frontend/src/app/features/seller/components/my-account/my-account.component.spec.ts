@@ -24,7 +24,7 @@ describe('MyAccountComponent', () => {
         }
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(MyAccountComponent);
     component = fixture.componentInstance;
@@ -34,4 +34,16 @@ describe('MyAccountComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create editForm with name and password controls', () => {
+    expect(component.editForm.contains('name')).toBeTrue();
+    expect(component.editForm.contains('password')).toBeTrue();
+  });
+
+  it('should make name required', () => {
+    const control = component.editForm.get('name');
+    control?.setValue('');
+    expect(control?.invalid).toBeTrue();
+  });
+
 });
